@@ -3,6 +3,5 @@ pandas
 numpy
 gunicorn
 sklearn
-sklearn.linear_model
 LogisticRegression
 pickle
