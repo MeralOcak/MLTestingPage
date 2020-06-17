@@ -15,7 +15,7 @@ import joblib
 # Load the dataset in a dataframe object and include only four features as mentioned
 url = "http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/train.csv"
 df = pd.read_csv(url)
-include = ['Age', 'Survived'] # Only three features
+include = ['Age', 'Sex', 'Survived'] # Only three features
 df_ = df[include]
 
 # Data Preprocessing
@@ -27,6 +27,7 @@ for col, col_type in df_.dtypes.iteritems():
           df_[col].fillna(0, inplace=True)
 
 df_ohe = pd.get_dummies(df_, columns=categoricals, dummy_na=True)
+df_ohe = df_ohe.drop(['Sex_male', 'Sex_nan'], axis = 1)
 
 # Logistic Regression classifier
 
