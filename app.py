@@ -31,7 +31,7 @@ def predict():
     final_features = [np.array(int_features)]
     prediction = model.predict(final_features)
 
-    return render_template('main.html', prediction_text='Prediction is $ {}'.format(prediction))
+    return render_template('main.html', prediction_text='Prediction is {}'.format(prediction))
 
 @app.route('/results',methods=['POST'])
 def results():
