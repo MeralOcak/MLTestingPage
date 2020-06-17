@@ -8,7 +8,7 @@ Created on Tue Jun 16 20:26:59 2020
 
 
 import flask
-from sklearn.externals import joblib
+import joblib
 import pandas as pd
 
 # Use pickle to load in the pre-trained model
