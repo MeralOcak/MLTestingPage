@@ -9,11 +9,13 @@ Created on Tue Jun 16 14:55:43 2020
 
 # Import dependencies
 import pandas as pd
+from sklearn.linear_model import LogisticRegression
+import joblib
 
 # Load the dataset in a dataframe object and include only four features as mentioned
 url = "http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/train.csv"
 df = pd.read_csv(url)
-include = ['Age', 'Sex', 'Survived'] # Only three features
+include = ['Age', 'Survived'] # Only three features
 df_ = df[include]
 
 # Data Preprocessing
@@ -27,7 +29,7 @@ for col, col_type in df_.dtypes.iteritems():
 df_ohe = pd.get_dummies(df_, columns=categoricals, dummy_na=True)
 
 # Logistic Regression classifier
-from sklearn.linear_model import LogisticRegression
+
 dependent_variable = 'Survived'
 x = df_ohe[df_ohe.columns.difference([dependent_variable])]
 y = df_ohe[dependent_variable]
@@ -35,12 +37,12 @@ lr = LogisticRegression()
 lr.fit(x, y)
 
 # Save your model
-import joblib
+
 joblib.dump(lr, 'lr_model.pkl')
 print("Model dumped!")
 
-model_columns = list(x.columns)
-joblib.dump(model_columns, 'lr_model_columns.pkl')
+# model_columns = list(x.columns)
+# joblib.dump(model_columns, 'lr_model_columns.pkl')
 
 
 
