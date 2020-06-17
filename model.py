@@ -9,7 +9,6 @@ Created on Tue Jun 16 14:55:43 2020
 
 # Import dependencies
 import pandas as pd
-import numpy as np
 
 # Load the dataset in a dataframe object and include only four features as mentioned
 url = "http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/train.csv"

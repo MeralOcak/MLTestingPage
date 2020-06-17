@@ -8,12 +8,12 @@ Created on Tue Jun 16 20:26:59 2020
 
 
 import flask
-import pickle
+from sklearn.externals import joblib
 import pandas as pd
 
 # Use pickle to load in the pre-trained model
-with open(f'/model/lr_model.pkl', 'rb') as f:
-    model = pickle.load(f)
+with open('lr_model.pkl', 'rb') as f:
+    model = joblib.load(f)
 
 # Initialise the Flask app
 app = flask.Flask(__name__, template_folder='templates')
