@@ -13,7 +13,7 @@ import pandas as pd
 # Load the dataset in a dataframe object and include only four features as mentioned
 url = "http://s3.amazonaws.com/assets.datacamp.com/course/Kaggle/train.csv"
 df = pd.read_csv(url)
-include = ['Age', 'Survived'] # Only four features
+include = ['Age', 'Sex', 'Survived'] # Only three features
 df_ = df[include]
 
 # Data Preprocessing
@@ -38,6 +38,9 @@ lr.fit(x, y)
 import joblib
 joblib.dump(lr, 'lr_model.pkl')
 print("Model dumped!")
+
+model_columns = list(x.columns)
+joblib.dump(model_columns, 'lr_model_columns.pkl')
 
 
 
